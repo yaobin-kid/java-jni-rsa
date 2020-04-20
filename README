@@ -1,0 +1,2 @@
+# 执行javac -d . RSAUtils.java 命令编译
+# 执行javah com.aiks.util.RSAUtils 生成头文件
