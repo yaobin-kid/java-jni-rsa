@@ -1,2 +1,25 @@
-# 执行javac -d . RSAUtils.java 命令编译
-# 执行javah com.aiks.util.RSAUtils 生成头文件
+1.通过javac -d . RSAUtils.java 完成java 源码编译
+2.通过javah com.aiks.util.RSAUtils 生成 .h 的头文件 具体可参考c++ 文件里的
+3.g++ BASE64Util.cpp RSAUtils.cpp RSAOSUtil.cpp -fPIC -shared -o librsa.so -I /usr/java/jdk1.8.0_144/include -I /usr/java/jdk1.8.0_144/include/linux -L /usr/lib -lssl -lcrypto 编译c++ 目录里的c++程序
+4.将生成的 librsa.so 复制到/usr/local/rsa 目录
+5.执行java com.aiks.util.RSAUtils 将看到 加密后和解密后的密文和明文
+6.如果要取消c++ 里的多余输出请将RSAOSUtil.cpp 程序里的cout<<xxx 的输出注释 然后在重新编译即可
+
+执行java com.aiks.util.RSAUtils 将看到 加密后和解密后的密文和明文 返回如下表示成功
+
+rsa != NULL
+java public key encrypt:0DlB3A01RrQ+E7UEh769HDof87CPWUe/ZfFLji6LolD9oA2i49y0l46oGQmFRFGk
+fKNMtGLMoWUoxRJjrwh2OiId04seRMehvJj6suv4hAe+alTh8/lvmHUXYtsi9fhi
+cdtSNR1P/go0BkNubbHrp0kQ+wb+VummF7jVp0ulh1g=
+
+java private key decrypt:123
+--------------------------
+rsa != NULL
+java private key encrypt:ZJU1n6WFjUZfUfvw97ZKFKhMCwITSeQZJXqXxEWZH3eDF61a2kWV/I3kf8DJN0sn
+7QuLtgt5QGU3pLogl8aMRKjTemiVsJRysy0KS4z7wgloUKwXYYNYUWBqXU6U0UM/
+o09xJxnr2IlH2ZRPjXQfc7+R59QrolhdW0JFwgKJT5E=
+
+RSA 公钥解密开始--->1
+RSA 公钥解密开始--->5
+RSA 公钥解密开始--->6
+java public key decrypt:abcd
