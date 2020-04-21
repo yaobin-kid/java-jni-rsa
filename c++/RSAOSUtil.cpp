@@ -145,6 +145,8 @@ std::string RSAOSUtil::decryptRSAbyPrivateKey(const std::string &data,std::strin
  * 私钥加密
  * */
 std::string RSAOSUtil::encryptRSAbyPrivateKey(const std::string &data, int *lenreturn,std::string strPrivateKey) {
+	//cout<<"privateKey:"<<strPrivateKey<<endl;
+	//cout<<"data:"<<data<<endl;
 
     int nPrivateKeyLen = strPrivateKey.size(); //strPublicKey为base64编码的公钥字符串
     for (int i = 64; i < nPrivateKeyLen; i += 64) {

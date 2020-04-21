@@ -49,7 +49,7 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_aiks_util_RSAUtils_encryptJNIPri(J
 	datamsg.assign(data);
 	
 	
-	std::string rsa = RSAOSUtil::encryptRSAbyPrivateKey(datamsg, NULL,privateKey);
+	std::string rsa = RSAOSUtil::encryptRSAbyPrivateKey(datamsg, NULL,key);
     rsa = BASE64Util::base64_encodestring(rsa);
 
     return env->NewStringUTF(rsa.c_str());
